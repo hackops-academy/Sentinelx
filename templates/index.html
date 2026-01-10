@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SentinelX | HACKOPS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <div class="scanlines"></div>
+
+    <div class="main-container">
+        
+        <div class="logo-container">
+            <div class="glitch" data-text="HACKOPS">HACKOPS</div>
+            <div class="sub-title">SENTINEL<span class="highlight">X</span> // V2.0</div>
+        </div>
+
+        <div class="system-status">
+            <span class="blink-dot"></span> SYSTEM ONLINE
+        </div>
+
+        {% if missing %}
+        <div class="alert-box">
+            <div class="alert-header">! SYSTEM ERROR</div>
+            <p>MISSING MODULES: {{ missing | join(', ') }}</p>
+        </div>
+        {% endif %}
+
+        <div class="interface-panel">
+            <div class="input-group">
+                <label for="target">TARGET_IDENTIFIER //</label>
+                <input type="text" id="target" placeholder="IP OR DOMAIN" autocomplete="off">
+                <div class="input-border"></div>
+            </div>
+
+            <button onclick="startScan()" class="cyber-btn">
+                <span class="btn-text">INITIATE_SCAN</span>
+                <span class="btn-glitch"></span>
+            </button>
+        </div>
+
+        <div id="status-panel" class="status-panel hidden">
+            <div class="console-log">
+                <p>> CONNECTING... <span class="ok">[OK]</span></p>
+                <p>> MODULE: <span id="tool-text" class="highlight">WAITING</span></p>
+                <p>> STATUS: <span id="status-text">IDLE</span></p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>OPERATOR: ANONYMOUS // TERMINAL: MOBILE_01</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

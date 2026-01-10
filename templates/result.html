@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SentinelX Report</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SCAN REPORT // {{ target }}</h1>
+        <a href="/" class="btn-back">NEW_TARGET</a>
+    </header>
+
+    <div class="results-container">
+        {% for tool, output in results.items() %}
+        <div class="tool-card">
+            <div class="tool-header">
+                <h3>>> {{ tool }}</h3>
+            </div>
+            <pre>{{ output }}</pre>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

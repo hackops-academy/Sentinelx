@@ -1,0 +1,235 @@
+:root {
+    --neon-cyan: #00f3ff;
+    --neon-green: #00ff41;
+    --neon-red: #ff003c;
+    --bg-dark: #050505;
+    --panel-bg: rgba(10, 20, 30, 0.85);
+    --font-header: 'Orbitron', sans-serif;
+    --font-code: 'Share Tech Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Cyberpunk Grid Background */
+    background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--neon-cyan);
+    font-family: var(--font-code);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* CRT Scanline Effect */
+.scanlines {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 450px; /* Optimized for Mobile width */
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- LOGO & GLITCH EFFECT --- */
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.glitch {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    font-weight: 700;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px var(--neon-red);
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-dark);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--neon-red);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 var(--neon-cyan);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+.sub-title {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    color: #888;
+    margin-top: 5px;
+}
+.highlight { color: var(--neon-green); }
+
+/* --- UI ELEMENTS --- */
+.system-status {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--neon-green);
+    margin-bottom: 20px;
+    border: 1px solid #111;
+    background: #000;
+    padding: 5px;
+    width: fit-content;
+    margin: 0 auto 20px auto;
+}
+
+.blink-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: blink 1s infinite;
+}
+
+.interface-panel {
+    background: var(--panel-bg);
+    padding: 25px;
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #333;
+    color: white;
+    font-family: var(--font-code);
+    font-size: 1.2rem;
+    padding: 10px 0;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 5px 10px -5px rgba(0, 243, 255, 0.3);
+}
+
+/* --- CYBER BUTTON --- */
+.cyber-btn {
+    width: 100%;
+    background: var(--neon-cyan);
+    color: #000;
+    border: none;
+    padding: 15px;
+    font-family: var(--font-header);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+    transition: 0.2s;
+}
+
+.cyber-btn:active {
+    transform: scale(0.98);
+    background: white;
+}
+
+/* --- PROGRESS PANEL --- */
+.hidden { display: none; }
+
+.status-panel {
+    margin-top: 20px;
+    background: black;
+    border: 1px solid var(--neon-green);
+    padding: 15px;
+}
+
+.console-log p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.ok { color: var(--neon-green); float: right;}
+
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: #222;
+    margin-top: 15px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--neon-green);
+    width: 0%;
+    box-shadow: 0 0 10px var(--neon-green);
+    transition: width 0.3s ease;
+}
+
+.alert-box {
+    border: 1px solid var(--neon-red);
+    color: var(--neon-red);
+    padding: 10px;
+    margin-bottom: 20px;
+    background: rgba(255, 0, 60, 0.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.7rem;
+    color: #555;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes blink { 50% { opacity: 0; } }
+
+@keyframes glitch-anim {
+    0% { clip: rect(20px, 9999px, 80px, 0); }
+    20% { clip: rect(10px, 9999px, 60px, 0); }
+    100% { clip: rect(90px, 9999px, 140px, 0); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip: rect(120px, 9999px, 150px, 0); }
+    20% { clip: rect(10px, 9999px, 40px, 0); }
+    100% { clip: rect(80px, 9999px, 10px, 0); }
+}
