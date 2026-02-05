@@ -12,7 +12,6 @@
 
 > **SentinelX** is a high-performance, mobile-responsive automated scanner designed for security researchers and penetration testers. It bridges the gap between powerful CLI tools and an intuitive, modern cyber-interface.
 
-[**🌐 Live Demo**](#) | [**📜 Documentation**](#) | [**🛠️ Setup Guide**](#)
 
 </div>
 
@@ -60,7 +59,7 @@ pkg update && pkg install nmap nikto python3 -y
 ```
 ### 2. Clone the Repository
 ```bash
-git clone [https://github.com/YourUsername/Sentinelx.git](https://github.com/YourUsername/Sentinelx.git)
+git clone https://github.com/hackops-academy/Sentinelx.git
 cd Sentinelx
 ```
 ### 3. Initialize Environment
