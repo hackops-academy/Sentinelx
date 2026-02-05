@@ -100,5 +100,6 @@ Open a Pull Request.
 <div align="center">
 ⚠️ LEGAL DISCLAIMER
 This tool is for educational and authorized testing purposes only. Usage of SentinelX for attacking targets without prior mutual consent is illegal. HACKOPS is not responsible for any misuse or damage caused by this program.
+    
 © 2026 HACKOPS SECURITY SOLUTIONS
 </div>
